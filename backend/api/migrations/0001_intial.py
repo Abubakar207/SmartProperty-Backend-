@@ -9,7 +9,6 @@ class Migration(migrations.Migration):
                           is_staff=True,
                           is_superuser=True,
                           phone="987654321",
-                          gender="Male"
                           )
         user.set_password("12345")
         user.save()
