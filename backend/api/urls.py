@@ -9,5 +9,6 @@ def home(request):
 urlpatterns = [
     path('', home, name='api.home'),
     path('user/', include('api.user.urls')),
-     path('property/', include('api.property.urls')),
+    path('property/', include('api.property.urls')),
+    path('images/', include('api.propertyimages.urls')),
 ]
