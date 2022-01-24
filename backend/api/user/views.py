@@ -6,6 +6,7 @@ from django.http import JsonResponse, HttpResponse
 from django.contrib.auth import get_user_model
 from django.views.decorators.csrf import csrf_exempt
 from django.contrib.auth import login, logout
+from rest_framework.permissions import IsAuthenticated
 import random
 import re
 # Create your views here.
@@ -13,7 +14,6 @@ import re
 
 def generate_session_token(length=10):
     return ''.join(random.SystemRandom().choice([chr(i) for i in range(97, 123)] + [str(i) for i in range(10)]) for _ in range(length))
-
 
 @csrf_exempt
 def signin(request):

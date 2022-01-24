@@ -44,13 +44,15 @@ INSTALLED_APPS = [
     'api.user',
     'api.property',
     'api.propertyimages',
+    
+    
 ]
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
-    # 'django.middleware.csrf.CsrfViewMiddleware',
+    'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
@@ -140,6 +142,7 @@ REST_FRAMEWORK = {
         'rest_framework.authentication.BasicAuthentication',
         'rest_framework.authentication.SessionAuthentication',
         'rest_framework.authentication.TokenAuthentication',
+        #'dj_rest_auth.jwt_auth.JWTCookieAuthentication',
     ],
     'DEFAULT_PERMISSION_CLASSES': [
        # 'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly',
@@ -148,3 +151,22 @@ REST_FRAMEWORK = {
 }
 
 AUTH_USER_MODEL = "user.CustomUser"
+
+
+# REST_USE_JWT = True
+# JWT_AUTH_COOKIE = 'my-app-auth'
+
+
+# AUTHENTICATION_BACKENDS = [
+#     # allauth specific authentication methods, such as login by e-mail
+#     'allauth.account.auth_backends.AuthenticationBackend',
+#     # Needed to login by username in Django admin, regardless of allauth
+#     'django.contrib.auth.backends.ModelBackend',
+# ]
+
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_USE_TLS = True
+EMAIL_PORT = 587
+EMAIL_HOST_USER = 'malikzada624@gmail.com'
+EMAIL_HOST_PASSWORD = 'F@st1133'
